@@ -38,7 +38,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public boolean update(int id, String login, String password, String name, String surname, int age) {
-        if (users.containsKey(id) || age > 0 && age < 120) {
+        if (age > 0 && age < 120) {
             users = users.entrySet().stream()
                     .peek(integerUserEntry -> {
                         if (integerUserEntry.getKey() == id) {
@@ -53,6 +53,11 @@ public class UserServiceImpl implements UserService {
         } else {
             return false;
         }
+    }
+
+    @Override
+    public boolean isPresent(int id) {
+        return users.containsKey(id);
     }
 
     @Override

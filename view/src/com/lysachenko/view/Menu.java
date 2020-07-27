@@ -60,8 +60,16 @@ public class Menu {
 
     private void updateUser() {
         System.out.println("User update information!");
-        System.out.print("Enter user ID: ");
-        int userId = scanner.nextInt();
+        int userId;
+        boolean present;
+        do {
+            System.out.print("Enter user ID: ");
+            userId = scanner.nextInt();
+            present = userService.isPresent(userId);
+            if (!present) {
+                System.out.println("User with ID: " + userId + " does not exist! Try again.");
+            }
+        } while (!present);
 
         System.out.print("Enter login: ");
         String login = scanner.next();

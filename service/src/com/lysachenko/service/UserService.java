@@ -9,4 +9,6 @@ public interface UserService {
     void delete(int id);
 
     void showUsers();
+
+    boolean isPresent(int id);
 }
