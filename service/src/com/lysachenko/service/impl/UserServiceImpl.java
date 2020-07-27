@@ -58,7 +58,6 @@ public class UserServiceImpl implements UserService {
     @Override
     public void delete(int id) {
         users.remove(id);
-        this.id--;
     }
 
     @Override
